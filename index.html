@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 13 Listening Exercises — Basic IELTS Listening</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#1B4F5E;
+  --teal-mid:#2A6E82;
+  --teal-light:#E3EFF3;
+  --amber:#E8A020;
+  --amber-light:#FDF3E0;
+  --slate:#6B8899;
+  --ink:#1A2B34;
+  --ink-mid:#3D5566;
+  --ink-soft:#7A95A5;
+  --paper:#F9F7F3;
+  --card:#FFFFFF;
+  --rule:#D8E4EA;
+  --green:#2A8052;
+  --green-light:#E6F4ED;
+  --red:#C0392B;
+  --red-light:#FDECEA;
+  --shadow:0 2px 14px rgba(27,79,94,0.09);
+  --shadow-lg:0 8px 32px rgba(27,79,94,0.14);
+  --r:10px;
+  --serif:'Literata',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height:100vh;font-size:15px;line-height:1.6}
+
+/* ─── Header ─── */
+.site-header{
+  background:var(--teal);
+  padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;position:sticky;top:0;z-index:100;
+  border-bottom:3px solid var(--amber);
+}
+.site-header .logo{color:white;font-family:var(--serif);font-size:1rem;font-weight:600;line-height:1.2}
+.site-header .logo span{display:block;color:rgba(255,255,255,0.55);font-family:var(--sans);font-size:0.7rem;font-weight:400;text-transform:uppercase;letter-spacing:0.1em;margin-top:1px}
+.progress-pill{
+  background:rgba(255,255,255,0.12);border-radius:20px;
+  padding:4px 14px;color:rgba(255,255,255,0.8);font-size:0.75rem;font-weight:500;
+  letter-spacing:0.05em;font-family:var(--sans);
+}
+
+/* ─── Layout ─── */
+.page-body{max-width:780px;margin:0 auto;padding:36px 20px 80px}
+
+/* ─── Unit dividers ─── */
+.unit-header{
+  display:flex;align-items:center;gap:14px;
+  margin:40px 0 20px;
+}
+.unit-header:first-child{margin-top:0}
+.unit-pill{
+  background:var(--teal);color:white;
+  border-radius:4px;padding:5px 14px;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.unit-rule{flex:1;height:1px;background:var(--rule)}
+.unit-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--teal)}
+
+/* ─── Exercise card ─── */
+.ex-card{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);margin-bottom:24px;
+  overflow:hidden;
+  border-left:4px solid transparent;
+  transition:border-color 0.2s;
+}
+.ex-card:focus-within{border-left-color:var(--teal-mid)}
+.ex-card-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:20px 24px 0;gap:12px;
+}
+.ex-meta{flex:1}
+.ex-eyebrow{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--slate);margin-bottom:4px}
+.ex-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink)}
+.ex-instruction{
+  background:var(--teal-light);border-radius:6px;
+  padding:10px 14px;margin:14px 24px 0;
+  font-size:0.82rem;color:var(--teal);line-height:1.6;
+  border-left:3px solid var(--teal-mid);
+}
+.ex-instruction strong{font-weight:600}
+
+/* ─── Audio player slot ─── */
+.audio-slot{
+  margin:16px 24px;
+  border:2px dashed var(--rule);border-radius:8px;
+  padding:14px 16px;
+  background:var(--paper);
+  transition:border-color 0.2s,background 0.2s;
+}
+.audio-slot.has-audio{border-style:solid;border-color:var(--teal-mid);background:var(--teal-light)}
+.audio-slot-label{
+  font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--slate);margin-bottom:8px;display:flex;align-items:center;gap:6px;
+}
+.audio-slot-label::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--slate);display:block;
+}
+.audio-slot.has-audio .audio-slot-label::before{background:var(--amber);box-shadow:0 0 0 3px rgba(232,160,32,0.2)}
+.audio-waveform{
+  display:flex;align-items:center;gap:3px;
+  margin-bottom:10px;height:28px;
+}
+.wave-bar{
+  width:3px;border-radius:2px;background:var(--rule);
+  animation:none;
+}
+.audio-slot.has-audio .wave-bar{background:var(--teal-mid)}
+.audio-slot.playing .wave-bar{animation:wave 1.2s ease-in-out infinite}
+.wave-bar:nth-child(2n){animation-delay:0.1s}
+.wave-bar:nth-child(3n){animation-delay:0.2s}
+.wave-bar:nth-child(4n){animation-delay:0.35s}
+@keyframes wave{
+  0%,100%{transform:scaleY(0.4);opacity:0.6}
+  50%{transform:scaleY(1);opacity:1}
+}
+/* Wave bar heights */
+.wb01{height:8px}.wb02{height:14px}.wb03{height:20px}.wb04{height:12px}
+.wb05{height:24px}.wb06{height:16px}.wb07{height:10px}.wb08{height:22px}
+.wb09{height:18px}.wb10{height:8px}.wb11{height:26px}.wb12{height:14px}
+.wb13{height:20px}.wb14{height:10px}.wb15{height:16px}
+
+.audio-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.audio-native{
+  flex:1;min-width:0;height:32px;
+  accent-color:var(--teal);
+}
+.audio-native::-webkit-media-controls-panel{background:transparent}
+.audio-file-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 12px;border-radius:6px;
+  border:1.5px solid var(--rule);background:var(--card);
+  font-family:var(--sans);font-size:0.78rem;font-weight:500;color:var(--ink-mid);
+  cursor:pointer;white-space:nowrap;transition:all 0.15s;
+}
+.audio-file-btn:hover{border-color:var(--teal-mid);color:var(--teal);background:var(--teal-light)}
+.audio-file-input{display:none}
+.track-label{
+  font-size:0.7rem;color:var(--slate);
+  background:var(--paper);border:1px solid var(--rule);
+  border-radius:4px;padding:2px 8px;font-family:var(--sans);
+  white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;
+}
+.mp3-hint{
+  font-size:0.72rem;color:var(--slate);margin-top:6px;
+  display:flex;align-items:center;gap:5px;
+}
+.mp3-hint code{
+  background:var(--amber-light);color:var(--amber);
+  border-radius:3px;padding:1px 5px;font-size:0.7rem;font-weight:600;
+}
+
+/* ─── Answer forms ─── */
+.ex-body{padding:0 24px 22px}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  margin-top:14px;
+}
+.form-grid.single{grid-template-columns:1fr}
+.form-grid.three{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:4px}
+.field-label{font-size:0.76rem;font-weight:600;color:var(--ink-mid)}
+.field-input{
+  border:1.5px solid var(--rule);border-radius:6px;
+  padding:8px 12px;font-family:var(--sans);font-size:0.9rem;
+  color:var(--ink);background:var(--paper);outline:none;
+  transition:border-color 0.18s,background 0.18s;
+}
+.field-input:focus{border-color:var(--teal-mid);background:white}
+.field-input.correct{border-color:var(--green);background:var(--green-light);color:var(--green)}
+.field-input.wrong{border-color:var(--red);background:var(--red-light)}
+.field-input.revealed{border-color:var(--amber);background:var(--amber-light)}
+.field-hint{font-size:0.7rem;color:var(--slate)}
+
+/* ─── Dialogue format ─── */
+.dialogue{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.d-line{display:flex;gap:10px;align-items:flex-start;font-size:0.9rem;line-height:1.6}
+.d-speaker{
+  font-weight:600;color:var(--teal);white-space:nowrap;
+  min-width:24px;flex-shrink:0;font-size:0.78rem;text-transform:uppercase;
+  letter-spacing:0.06em;padding-top:2px;
+}
+.d-text{flex:1;color:var(--ink-mid)}
+.d-blank{
+  display:inline-block;border-bottom:2px solid var(--teal-mid);
+  min-width:120px;vertical-align:middle;
+}
+.d-blank input{
+  border:none;background:transparent;outline:none;
+  font-family:var(--sans);font-size:0.9rem;color:var(--ink);
+  width:100%;min-width:90px;padding:0 4px;
+}
+
+/* ─── Map / table ─── */
+.name-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:0.88rem}
+.name-table th{
+  background:var(--teal);color:white;padding:8px 12px;
+  text-align:left;font-weight:600;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;
+}
+.name-table td{padding:8px 12px;border-bottom:1px solid var(--rule)}
+.name-table tr:nth-child(even) td{background:#F5F8FA}
+.name-table input{
+  border:none;background:transparent;border-bottom:1.5px solid var(--rule);
+  font-family:var(--sans);font-size:0.88rem;color:var(--ink);outline:none;
+  width:100%;min-width:80px;padding:2px 4px;
+  transition:border-color 0.15s;
+}
+.name-table input:focus{border-bottom-color:var(--teal-mid)}
+
+/* ─── Section divider ─── */
+.section-divider{
+  text-align:center;margin:6px 0;font-size:0.75rem;
+  color:var(--slate);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* ─── Buttons ─── */
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;padding:0 24px 22px}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 20px;border-radius:7px;border:none;
+  font-family:var(--sans);font-size:0.85rem;font-weight:600;
+  cursor:pointer;transition:all 0.18s;
+}
+.btn-primary{background:var(--teal);color:white}
+.btn-primary:hover{background:var(--teal-mid)}
+.btn-ghost{background:transparent;border:1.5px solid var(--rule);color:var(--ink-mid)}
+.btn-ghost:hover{border-color:var(--teal-mid);color:var(--teal);background:var(--teal-light)}
+.btn-amber{background:var(--amber);color:white}
+.btn-amber:hover{background:#c98b1a}
+
+/* ─── Answer reveal ─── */
+.answer-panel{
+  margin:0 24px 20px;padding:12px 16px;
+  background:var(--green-light);border-radius:8px;
+  border-left:3px solid var(--green);
+  display:none;animation:fadeIn 0.25s ease;
+}
+.answer-panel.shown{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.answer-panel h4{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:8px}
+.answer-panel .ans-list{font-size:0.88rem;color:var(--ink-mid);line-height:2}
+.answer-panel .ans-item{display:flex;gap:8px}
+.ans-num{font-weight:700;color:var(--green);min-width:20px}
+.ans-val{font-weight:600;color:var(--ink)}
+
+/* ─── Score ─── */
+.score-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--teal-light);color:var(--teal);
+  border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;
+  margin-left:12px;
+}
+
+/* ─── Utility ─── */
+.hidden{display:none!important}
+.text-slate{color:var(--slate)}
+.mt8{margin-top:8px}
+.note{
+  font-size:0.78rem;color:var(--slate);
+  background:var(--amber-light);border-radius:6px;
+  padding:8px 12px;margin-top:10px;line-height:1.5;
+  border-left:3px solid var(--amber);
+}
+hr.card-rule{border:none;border-top:1px solid var(--rule);margin:14px 0}
+
+/* ─── Submit section ─── */
+.submit-section{
+  margin-top:40px;padding:28px 24px;
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);text-align:center;
+}
+.submit-section p{font-size:0.85rem;color:var(--ink-mid);margin-bottom:16px}
+.btn-submit{
+  background:var(--amber);color:white;
+  padding:12px 36px;font-size:0.95rem;border-radius:8px;
+}
+.btn-submit:hover{background:#c98b1a}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">
+    Day 14 — Listening Exercises
+    <span>Basic IELTS Listening · Part 1 Form, Name &amp; Number Completion</span>
+  </div>
+  <div class="progress-pill">4 Practice Tasks · Day 14</div>
+</header>
+
+<div class="page-body">
+  <div class="note" style="margin:0 0 20px">
+    <strong>Do it at your own pace.
+  </div>
+
+<div class="unit-header">
+  <div class="unit-pill">Unit 1</div>
+  <div class="unit-title">Numbers</div>
+  <div class="unit-rule"></div>
+</div>
+
+<div class="ex-card" id="ex1">
+  <div class="ex-card-top">
+    <div class="ex-meta">
+      <div class="ex-eyebrow">Exercise 1</div>
+      <div class="ex-title">Teens vs. Tens</div>
+    </div>
+  </div>
+
+  <div class="ex-instruction">
+    <strong>Instructions:</strong> Listen and choose the number you hear in each pair. This is the exact skill from Day 13: do not confuse teens and tens.
+  </div>
+
+  <div class="audio-slot" id="slot1">
+    <div class="audio-slot-label">Audio — Track 1</div>
+    <div class="audio-waveform">
+      <div class="wave-bar wb05"></div><div class="wave-bar wb02"></div><div class="wave-bar wb09"></div>
+      <div class="wave-bar wb13"></div><div class="wave-bar wb07"></div><div class="wave-bar wb01"></div>
+      <div class="wave-bar wb11"></div><div class="wave-bar wb04"></div><div class="wave-bar wb14"></div>
+      <div class="wave-bar wb08"></div><div class="wave-bar wb06"></div><div class="wave-bar wb03"></div>
+      <div class="wave-bar wb12"></div><div class="wave-bar wb10"></div><div class="wave-bar wb15"></div>
+    </div>
+    <div class="audio-controls">
+      <audio id="audio1" class="audio-native" controls preload="metadata" src="audio/track1.mp3"></audio>
+      <label class="audio-file-btn" for="file1">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Load audio
+      </label>
+      <input type="file" id="file1" class="audio-file-input" accept="audio/*" onchange="loadAudio('audio1','slot1','label1',this)">
+      <span class="track-label" id="label1">No file loaded</span>
+    </div>
+    <div class="mp3-hint">Use this exercise to practise the stress patterns for teen and ten numbers.</div>
+  </div>
+
+  <div class="ex-body">
+    <div id="teens-tens-qs"></div>
+  </div>
+</div>
+
+
+<div class="unit-header">
+  <div class="unit-pill">Unit 2</div>
+  <div class="unit-title">Names, Places &amp; Spelling</div>
+  <div class="unit-rule"></div>
+</div>
+
+<div class="ex-card" id="ex2">
+  <div class="ex-card-top">
+    <div class="ex-meta">
+      <div class="ex-eyebrow">Exercise 2</div>
+      <div class="ex-title">Form Completion</div>
+    </div>
+  </div>
+
+  <div class="ex-instruction">
+    <strong>Instructions:</strong> Listen to the conversation and complete the form. Write the answer exactly as you hear it. Pay attention to spelling, word limits, and whether the answer is a name, place, or date.
+  </div>
+  <div class="note" style="margin:14px 24px 0">⚠️ Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.</div>
+
+  <div class="audio-slot" id="slot2">
+    <div class="audio-slot-label">Audio — Track 2</div>
+    <div class="audio-waveform">
+      <div class="wave-bar wb01"></div><div class="wave-bar wb02"></div><div class="wave-bar wb03"></div>
+      <div class="wave-bar wb04"></div><div class="wave-bar wb05"></div><div class="wave-bar wb06"></div>
+      <div class="wave-bar wb07"></div><div class="wave-bar wb08"></div><div class="wave-bar wb09"></div>
+      <div class="wave-bar wb10"></div><div class="wave-bar wb11"></div><div class="wave-bar wb12"></div>
+      <div class="wave-bar wb13"></div><div class="wave-bar wb14"></div><div class="wave-bar wb15"></div>
+    </div>
+    <div class="audio-controls">
+      <audio id="audio2" class="audio-native" controls preload="metadata" src="audio/track2.mp3"></audio>
+      <label class="audio-file-btn" for="file2b">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Load audio
+      </label>
+      <input type="file" id="file2b" class="audio-file-input" accept="audio/*" onchange="loadAudio('audio2','slot2','label2b',this)">
+      <span class="track-label" id="label2b">No file loaded</span>
+    </div>
+    <div class="mp3-hint">Use your own audio file here if you want to practise with the PDF-style recording.</div>
+  </div>
+
+  <div class="ex-body">
+    <div class="form-grid">
+      <div class="field"><label class="field-label">Name</label><input type="text" id="ex2-1" class="field-input" placeholder="Maria…"></div>
+      <div class="field"><label class="field-label">Date of Birth</label><input type="text" id="ex2-2" class="field-input" placeholder="…"></div>
+      <div class="field"><label class="field-label">Country of Origin</label><input type="text" id="ex2-3" class="field-input" placeholder="…"></div>
+      <div class="field"><label class="field-label">Subject</label><input type="text" id="ex2-4" class="field-input" placeholder="…"></div>
+      <div class="field"><label class="field-label">Accommodation</label><input type="text" id="ex2-5" class="field-input" placeholder="shared…"></div>
+      <div class="field"><label class="field-label">Course dates</label><input type="text" id="ex2-6" class="field-input" placeholder="…to…"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ex-card" id="ex3">
+  <div class="ex-card-top">
+    <div class="ex-meta">
+      <div class="ex-eyebrow">Exercise 3</div>
+      <div class="ex-title">Name and Address Spelling</div>
+    </div>
+  </div>
+
+  <div class="ex-instruction">
+    <strong>Instructions:</strong> Write the full spelling of each name or address. Use the alphabet clearly and make sure the answer is the correct word form.
+  </div>
+  <div class="note" style="margin:14px 24px 0">⚠️ Write NO MORE THAN ONE WORD AND/OR A NUMBER for each answer.</div>
+
+  <div class="audio-slot" id="slot3">
+    <div class="audio-slot-label">Audio — Track 3</div>
+    <div class="audio-waveform">
+      <div class="wave-bar wb03"></div><div class="wave-bar wb08"></div><div class="wave-bar wb05"></div>
+      <div class="wave-bar wb01"></div><div class="wave-bar wb11"></div><div class="wave-bar wb06"></div>
+      <div class="wave-bar wb09"></div><div class="wave-bar wb02"></div><div class="wave-bar wb07"></div>
+      <div class="wave-bar wb12"></div><div class="wave-bar wb04"></div><div class="wave-bar wb14"></div>
+      <div class="wave-bar wb10"></div><div class="wave-bar wb13"></div><div class="wave-bar wb15"></div>
+    </div>
+    <div class="audio-controls">
+      <audio id="audio3" class="audio-native" controls preload="metadata" src="audio/track3.mp3"></audio>
+      <label class="audio-file-btn" for="file3">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Load audio
+      </label>
+      <input type="file" id="file3" class="audio-file-input" accept="audio/*" onchange="loadAudio('audio3','slot3','label3',this)">
+      <span class="track-label" id="label3">No file loaded</span>
+    </div>
+    <div class="mp3-hint">Import the matching recording if you want to practise full-name spelling.</div>
+  </div>
+
+  <div class="ex-body">
+    <div class="dialogue">
+      <div class="d-line"><span class="d-speaker">1</span><span class="d-text">Address: Apartment 1, 72 <span class="d-blank"><input type="text" id="ex3-1" placeholder="…"></span>Street, Highbridge</span></div>
+      <div class="d-line"><span class="d-speaker">2</span><span class="d-text">Postcode: <span class="d-blank"><input type="text" id="ex3-2" placeholder="…"></span></span></div>
+      <div class="d-line"><span class="d-speaker">3</span><span class="d-text">Telephone (work): <span class="d-blank"><input type="text" id="ex3-3" placeholder="…"></span></span></div>
+      <div class="d-line"><span class="d-speaker">4</span><span class="d-text">Driver's licence number: <span class="d-blank"><input type="text" id="ex3-4" placeholder="…"></span></span></div>
+      <div class="d-line"><span class="d-speaker">5</span><span class="d-text">Date of birth: 25th <span class="d-blank"><input type="text" id="ex3-5" placeholder="…"></span>1977</span></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="unit-header">
+  <div class="unit-pill">Unit 3</div>
+  <div class="unit-title">Application</div>
+  <div class="unit-rule"></div>
+</div>
+
+<div class="ex-card" id="ex4">
+  <div class="ex-card-top">
+    <div class="ex-meta">
+      <div class="ex-eyebrow">Exercise 4</div>
+      <div class="ex-title">ADVANCED</div>
+    </div>
+  </div>
+
+  <div class="ex-instruction">
+    <strong>Instructions:</strong> This is an application-type exercise. Listen carefully and keep in mind of everything you have learnt.
+  </div>
+  <div class="note" style="margin:14px 24px 0">⚠️ Write NO MORE THAN TWO WORDS AND/OR A NUMBER for each answer.</div>
+
+  <div class="audio-slot" id="slot4">
+    <div class="audio-slot-label">Audio — Track 4</div>
+    <div class="audio-waveform">
+      <div class="wave-bar wb07"></div><div class="wave-bar wb11"></div><div class="wave-bar wb03"></div>
+      <div class="wave-bar wb14"></div><div class="wave-bar wb05"></div><div class="wave-bar wb09"></div>
+      <div class="wave-bar wb01"></div><div class="wave-bar wb13"></div><div class="wave-bar wb06"></div>
+      <div class="wave-bar wb10"></div><div class="wave-bar wb08"></div><div class="wave-bar wb02"></div>
+      <div class="wave-bar wb12"></div><div class="wave-bar wb04"></div><div class="wave-bar wb15"></div>
+    </div>
+    <div class="audio-controls">
+      <audio id="audio4" class="audio-native" controls preload="metadata" src="audio/track4.mp3"></audio>
+      <label class="audio-file-btn" for="file4">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Load audio
+      </label>
+      <input type="file" id="file4" class="audio-file-input" accept="audio/*" onchange="loadAudio('audio4','slot4','label4',this)">
+      <span class="track-label" id="label4">No file loaded</span>
+    </div>
+    <div class="mp3-hint">This is useful for practising numbers, prices, and dates.</div>
+  </div>
+
+  <div class="ex-body">
+    <div class="form-grid single">
+      <div style="display:flex; align-items:center; gap:6px;"><b>Areas dealt with:</b><span>1.</span><input type="text" id="ex4-1" style="flex:0 0 80px;"><span>and north suburbs</span></div>
+      <div style="display:flex; align-items:center; gap:6px;"><b>Rent:</b><span>from 2.</span><input type="text" id="ex4-2" style="flex:0 0 80px;"><span>to about £500 a month</span></div>
+      <div style="display:flex; flex-direction:column; gap:6px;"><b>Depends on:</b><div style="display:flex; align-items:center; gap:6px;"><span>the area availbility of 3.</span><input type="text" id="ex4-3" style="flex:0 0 80px;"></div></div>
+      <div style="display:flex; align-items:center; gap:6px;"><span>and garage.</span></div>
+      <div style="display:flex; flex-direction:column; gap:4px;"><b>Properties available:</b><div style="display:flex; align-items:center; gap:6px;"><span>West Park Road rent £ 4.</span><input type="text" id="ex4-4" style="width:80px;"><span>a month</span><span>including 5.</span><input type="text" id="ex4-5" style="width:80px;"></span></div></div>
+      <div style="display:flex; align-items:center; gap:6px;"><span>Tithe Road rent £380 a month including 6.</span><input type="text" id="ex4-6" style="flex:0 0 80px;"><span>rental</span></div>
+      <div style="display:flex; align-items:center; gap:6px;"><b>Viewing arrangements:</b><span>meet at office on 7.</span><input type="text" id="ex4-7" style="flex:0 0 80px;"><span> garage</span></div>
+      <div style="display:flex; align-items:center; gap:6px;"><b>Need:</b><span>letter from bank reference from 8.</span><input type="text" id="ex4-8" style="flex:0 0 80px;"></div>
+      <div style="display:flex; flex-direction:column; gap:4px;"><b>Must:</b><div style="display:flex; align-items:center; gap:6px;"><span>give 9.</span><input type="text" id="ex4-9" style="width:80px;"><span>notice of moving in</span></div></div>
+      <div style="display:flex; align-items:center; gap:6px;"><span>give deposit of 10.</span><input type="text" id="ex4-10" style="flex:0 0 80px;"></div>
+      <div style="display:flex; align-items:center; gap:6px;"><span>pay for contract</span></div>
+
+    </div>
+  </div>
+</div>
+
+<div class="submit-section">
+  <p>Once you've completed all the exercises above, submit to see your results.</p>
+  <button class="btn btn-submit" onclick="submitAll()">Submit All Answers</button>
+  <div class="answer-panel" id="final-panel" style="text-align:left;margin-top:20px">
+    <h4>Results</h4>
+    <div id="final-summary"></div>
+  </div>
+</div>
+
+</div><!-- end page-body -->
+
+<script>
+const AUDIO_DEFAULTS = [
+  { audioId: 'audio1', slotId: 'slot1', labelId: 'label1', src: 'audio/track1.mp3' },
+  { audioId: 'audio2', slotId: 'slot2', labelId: 'label2b', src: 'audio/track2.mp3' },
+  { audioId: 'audio3', slotId: 'slot3', labelId: 'label3', src: 'audio/track3.mp3' },
+  { audioId: 'audio4', slotId: 'slot4', labelId: 'label4', src: 'audio/track4.mp3' }
+];
+
+function attachAudioEvents(audio, slot){
+  audio.addEventListener('play', ()=> slot.classList.add('playing'));
+  audio.addEventListener('pause', ()=> slot.classList.remove('playing'));
+  audio.addEventListener('ended', ()=> slot.classList.remove('playing'));
+}
+
+function loadAudio(audioId, slotId, labelId, input){
+  if(!input.files[0]) return;
+  const file = input.files[0];
+  const url = URL.createObjectURL(file);
+  const audio = document.getElementById(audioId);
+  audio.src = url;
+  document.getElementById(labelId).textContent = file.name;
+  const slot = document.getElementById(slotId);
+  slot.classList.add('has-audio');
+  attachAudioEvents(audio, slot);
+}
+
+function autoLoadAudio(){
+  AUDIO_DEFAULTS.forEach(({ audioId, slotId, labelId, src }) => {
+    const audio = document.getElementById(audioId);
+    const slot = document.getElementById(slotId);
+    const label = document.getElementById(labelId);
+    if (!audio || !slot || !label) return;
+
+    audio.src = src;
+    audio.load();
+    attachAudioEvents(audio, slot);
+
+    audio.addEventListener('canplay', () => {
+      slot.classList.add('has-audio');
+      label.textContent = src.split('/').pop();
+    });
+
+    audio.addEventListener('error', () => {
+      label.textContent = 'Audio file not found';
+    });
+  });
+}
+
+window.addEventListener('DOMContentLoaded', autoLoadAudio);
+
+// ─── Teens vs Tens data ───
+const TTQ = [
+  { stem:"She is going to be", pair:[80,18], suffix:" this birthday", ans:18 },
+  { stem:"My bestfriend lives just down the road at number", pair:[15,50], ans:50 },
+  { stem:"He ran his first marathon at", pair:[16,60], suffix:" years old", ans:60 },
+  { stem:"My niece cycles to work each day, even though it is over", pair:[30,13], suffix:" miles each way", ans:30 },
+  { stem:"The traffic was so bad it took me", pair:[14,40], suffix:" minutes", ans:40 },
+];
+
+function buildTeensTens(){
+  const container = document.getElementById('teens-tens-qs');
+  container.innerHTML = TTQ.map((q,i)=>`
+    <div style="margin-bottom:14px;padding:12px 14px;background:var(--paper);border-radius:7px;border:1.5px solid var(--rule)" id="ttq${i}">
+      <div style="font-size:0.82rem;color:var(--ink-mid);margin-bottom:8px">
+        <strong>${i+1}.</strong> ${q.stem}… ${q.suffix||''}
+      </div>
+      <div style="display:flex;gap:10px">
+        ${q.pair.map(n=>`
+          <label style="display:flex;align-items:center;gap:7px;cursor:pointer;padding:7px 16px;border-radius:6px;border:1.5px solid var(--rule);background:white;font-weight:600;font-size:0.95rem;transition:all 0.15s" class="tt-opt" id="ttq${i}_${n}">
+            <input type="radio" name="ttq${i}" value="${n}" style="accent-color:var(--teal)"> ${n}
+          </label>`).join('')}
+      </div>
+    </div>`).join('');
+}
+buildTeensTens();
+
+// ─── Answer keys for Exercises 2-4 (accepted variants, matched case-insensitively) ───
+const EX2_KEY = {
+  'ex2-1': ['bueno'],
+  'ex2-2': ['september 12th, 1985','september 12th 1985','sept 12 1985','sept 12, 1985','09/12/85'],
+  'ex2-3': ['spain'],
+  'ex2-4': ['photography'],
+  'ex2-5': ['flat'],
+  'ex2-6': ['august - september','august to september']
+};
+const EX3_KEY = {
+  'ex3-1': ['black'],
+  'ex3-2': ['2085'],
+  'ex3-3': ['94561309'],
+  'ex3-4': ['2020bd'],
+  'ex3-5': ['july','07','7']
+};
+const EX4_KEY = {
+  'ex4-1': ['city center','city centre'],
+  'ex4-2': ['250','£250'],
+  'ex4-3': ['garden'],
+  'ex4-4': ['325','£325'],
+  'ex4-5': ['water bill'],
+  'ex4-6': ['telephone'],
+  'ex4-7': ['wednesday afternoon'],
+  'ex4-8': ['employer'],
+  'ex4-9': ['2 weeks','two weeks'],
+  'ex4-10': ['1 month','one month']
+};
+
+function norm(v){ return v.trim().toLowerCase().replace(/\s+/g,' '); }
+
+function gradeKey(key){
+  let correct = 0;
+  const ids = Object.keys(key);
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('correct','wrong');
+    const val = norm(el.value);
+    if(!val) return; // leave blanks unmarked
+    const ok = key[id].some(a=>norm(a)===val);
+    el.classList.add(ok?'correct':'wrong');
+    if(ok) correct++;
+  });
+  return { correct, total: ids.length };
+}
+
+// ─── Final submit: reveal everything at once ───
+function submitAll(){
+  let correct = 0, answered = 0;
+  TTQ.forEach((q,i)=>{
+    const sel = document.querySelector(`input[name="ttq${i}"]:checked`);
+    if(sel){
+      answered++;
+      if(parseInt(sel.value) === q.ans) correct++;
+    }
+    q.pair.forEach(n=>{
+      const lbl = document.getElementById(`ttq${i}_${n}`);
+      if(lbl){
+        lbl.style.background = n===q.ans ? 'var(--green-light)' : 'white';
+        lbl.style.borderColor = n===q.ans ? 'var(--green)' : 'var(--rule)';
+        lbl.style.color = n===q.ans ? 'var(--green)' : 'var(--ink)';
+      }
+    });
+  });
+
+  const ex2Result = gradeKey(EX2_KEY);
+  const ex3Result = gradeKey(EX3_KEY);
+  const ex4Result = gradeKey(EX4_KEY);
+  const totalCorrect = correct + ex2Result.correct + ex3Result.correct + ex4Result.correct;
+  const totalQuestions = TTQ.length + ex2Result.total + ex3Result.total + ex4Result.total;
+
+  const summary = document.getElementById('final-summary');
+  summary.innerHTML = `
+    <div class="ans-list">
+      <div class="ans-item"><span class="ans-num">Total</span><span class="ans-val">${totalCorrect} / ${totalQuestions} correct</span></div>
+      <div class="ans-item"><span class="ans-num">Ex.1</span><span class="ans-val">Teens vs. Tens — ${correct}/${TTQ.length} correct</span></div>
+      <div class="ans-item"><span class="ans-num">Ex.2</span><span class="ans-val">Form Completion — ${ex2Result.correct}/${ex2Result.total} correct</span></div>
+      <div class="ans-item"><span class="ans-num">Ex.3</span><span class="ans-val">Name and Address Spelling — ${ex3Result.correct}/${ex3Result.total} correct</span></div>
+      <div class="ans-item"><span class="ans-num">Ex.4</span><span class="ans-val">Advanced — ${ex4Result.correct}/${ex4Result.total} correct</span></div>
+    </div>`;
+  document.getElementById('final-panel').classList.add('shown');
+  document.getElementById('final-panel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>
